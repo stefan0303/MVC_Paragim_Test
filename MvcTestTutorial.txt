@@ -1,0 +1,129 @@
+MVC - model view controller
+
+Index View is the Default View of every Controller. If we type the address of the controller is looking for
+an Action method Index and for an View Index.
+Example look in ParagimMVC in Controlles class TransferDataWithViewData
+
+When we have an controllerName/ActionName will look for an method in this controller class with this ActionName
+
+ToDo read why we need to make routes in MVC when we have this routes by default
+
+Transfer a Data to view 
+ There are several ways: ViewData, ViewBag, ViewModel
+
+ViewData
+Its a piece of code Where we can store some data.
+Example in ParagimMVC. : In action we have  ViewData["Message"] = "Baba Jaga";
+and in view we can use the viewData @{ViewData["Title"] = "About";}
+
+ViewBag
+Can store a data like ViewData. ViewBag uses dynamic feature that was introduced in to C# 4.
+It allows an object to have properties dynamically added to it.
+
+Just like ViewData, ViewBag does not provide compile time error checking. For example,
+ if you mis-spell the property name, you wouldn't get any compile time error. 
+ You get to know about the error only at runtime.
+Internally ViewBag properties are stored as name/value pairs in the ViewData dictionary.
+Please Note:
+ To pass data from controller to a view, It's always a good practice to use strongly typed view models instead of using ViewBag & ViewData.
+ Strongly typed view models  provide compile time error checking. We will discuss view models in a later video session. 
+ 
+ ViewModel
+ 
+ 
+ Generate hyperlinks using actionlink html helper
+ Example in OnlineStore Views/Shared/_AllProducts.cshtml
+ @Html.ActionLink("Edit","EditProduct","Products", new {id = product.Id, price = product.Price},new { @class = "btn btn-primary btn-lg btn-size" })
+ @Html.ActionLink("Delete","Delete","Products", new {id = product.Id},new { @class = "btn btn-primary btn-lg btn-block btn-size" })
+ 
+ -----------------
+ GetData From A view with HttpGet and HttpPost Request with Parameters!!!
+ 
+ Important is the match the parameters name in the method to the control names
+ Example:
+ @model ParagimMVC.Models.Employee
+
+@using (Html.BeginForm("GetData", "GetDataFromView", FormMethod.Get))
+{
+    @Html.TextBoxFor(model => model.Name)
+    @Html.ValidationMessageFor(model => model.Name)
+
+    @Html.TextBoxFor(model => model.Age)
+    @Html.ValidationMessageFor(model => model.Age,"Type Something!")
+	<br/>
+    <button type="submit">Subscribe</button>
+}
+
+Methods in controller GetDataFromViewController. For more see GetDataFromViewController controller in ParagimMvc
+		[HttpGet]
+        public void GetData(int id, string name, int age)
+        {
+            //we get the data with get method
+           
+        }
+        [HttpPost]
+        public void GetDataWithHttpPost(int id, string name, int age)
+        {
+           //we get the data with post method
+          
+        }
+-----------------
+Get Data with passing an object .
+If we have a lot of parameters we can pass the whole object! Just make the method to Receive an Employee object
+		[HttpPost]
+        public void GetDataWithHttpPost(Employee employee)
+        {
+           //we get the data with post method
+          
+        }
+-----------------
+Deleting a record from database should always be performed with PostRequest. Not with get Request!
+Example of implementing See OnlineStore project the ProductsController method , and the View MyProducts\
+http://csharp-video-tutorials.blogspot.com/2013/05/part-24-deleting-database-records-using.html
+-----------------
+View Engines in MVC
+1. ASPX - the server side script is wrapped between <% %>
+SPX views has the extension of .ASPX
+2. Razor - we use @ when we starting typing an c# code
+RAZOR views have the extension of .CSHTML or .VBHTML
+-----------------
+ActionResult is an abstract class that can have several subtypes.
+
+ActionResult Subtypes
+ViewResult - Renders a specifed view to the response stream
+
+PartialViewResult - Renders a specifed partial view to the response stream
+
+EmptyResult - An empty response is returned
+
+RedirectResult - Performs an HTTP redirection to a specifed URL
+
+RedirectToRouteResult - Performs an HTTP redirection to a URL that is determined by the routing engine, based on given route data
+
+JsonResult - Serializes a given ViewData object to JSON format
+
+JavaScriptResult - Returns a piece of JavaScript code that can be executed on the client
+
+ContentResult - Writes content to the response stream without requiring a view
+
+FileContentResult - Returns a file to the client
+
+FileStreamResult - Returns a file to the client, which is provided by a Stream
+
+FilePathResult - Returns a file to the client
+-----------------
+Partial View
+
+Partial viev is similar to User Controls in Web Forms
+Partial views are used to encapsulate re-usable view logic and are a great means to simplify the complexity of views. 
+These partial views can then be used on multiple views, where we need similar view logic.
+Please note that, partial views can be added to "Shared" folder or to a specific views folder.
+ Partial views that are in the "Shared" folder are available for all the views in the entire project, 
+ where as partial views in a specific folder are available only for the views with-in that folder.
+ 
+ I am using a partial view in OnlineStore see  folder Shared _AllProducts.cshtml this file is used in 
+ folder Products AllProducts.cshtml see this code @{ Html.RenderPartial("_AllProducts", Model);};
+
+-----------------
+Layout
+https://www.youtube.com/watch?v=VyQhEArGTNs
