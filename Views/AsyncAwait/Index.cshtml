@@ -1,0 +1,24 @@
+﻿@using Microsoft.AspNetCore.Mvc.Rendering
+@model Employee
+
+@using (Html.BeginForm("Index", "AsyncAwait", FormMethod.Post))
+{
+ 
+    @Html.TextBoxFor(model => model.Name)
+	<br/>
+    <button type="submit">Subscribe with Post</button>
+}
+@section Menu
+{
+    <h2>Hello</h2>
+   
+}
+
+
+@using (Html.BeginForm("GetsomeTtResult", "AsyncAwait", FormMethod.Post))
+{
+ 
+    @Html.TextBoxFor(model => model.Name)
+    <br/>
+    <button type="submit">Subscribe with Post</button>
+}

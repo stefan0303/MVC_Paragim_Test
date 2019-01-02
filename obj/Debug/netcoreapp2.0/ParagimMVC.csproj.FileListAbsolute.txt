@@ -1,0 +1,11 @@
+C:\ParagimMVC\bin\Debug\netcoreapp2.0\ParagimMVC.deps.json
+C:\ParagimMVC\bin\Debug\netcoreapp2.0\ParagimMVC.runtimeconfig.json
+C:\ParagimMVC\bin\Debug\netcoreapp2.0\ParagimMVC.runtimeconfig.dev.json
+C:\ParagimMVC\bin\Debug\netcoreapp2.0\ParagimMVC.dll
+C:\ParagimMVC\bin\Debug\netcoreapp2.0\ParagimMVC.pdb
+C:\ParagimMVC\obj\Debug\netcoreapp2.0\ParagimMVC.csprojResolveAssemblyReference.cache
+C:\ParagimMVC\obj\Debug\netcoreapp2.0\ParagimMVC.csproj.CoreCompileInputs.cache
+C:\ParagimMVC\obj\Debug\netcoreapp2.0\ParagimMVC.AssemblyInfoInputs.cache
+C:\ParagimMVC\obj\Debug\netcoreapp2.0\ParagimMVC.AssemblyInfo.cs
+C:\ParagimMVC\obj\Debug\netcoreapp2.0\ParagimMVC.dll
+C:\ParagimMVC\obj\Debug\netcoreapp2.0\ParagimMVC.pdb

@@ -1,0 +1,24 @@
+﻿@model ParagimMVC.Models.Employee
+
+<h2>Create</h2>
+@using (Html.BeginForm("GetDataWithHttpGet", "GetDataFromView", FormMethod.Get))
+{
+    @Html.TextBoxFor(model => model.Name)
+    @Html.ValidationMessageFor(model => model.Name)
+
+    @Html.TextBoxFor(model => model.Age)
+    @Html.ValidationMessageFor(model => model.Age,"Type Something!")
+	<br/>
+    <button type="submit">Subscribe with Get </button>
+}
+
+@using (Html.BeginForm("GetDataWithHttpPost", "GetDataFromView", FormMethod.Post))
+{
+    @Html.TextBoxFor(model => model.Name)
+    @Html.ValidationMessageFor(model => model.Name)
+
+    @Html.TextBoxFor(model => model.Age)
+    @Html.ValidationMessageFor(model => model.Age,"Type Something!")
+    <br/>
+    <button type="submit">Subscribe with Post</button>
+}
